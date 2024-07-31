@@ -1,46 +1,126 @@
 .App {
   text-align: center;
+  background: linear-gradient(135deg, #003f5c, #1f77b4); /* Gradiente metálico cian oscuro */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Asegura que el fondo cubra toda la altura */
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Necesario para el pseudo-elemento del fondo */
 }
 
+/* Agrega un pseudo-elemento para el fondo texturizado */
+.App::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Sombra ligera para el efecto metálico */
+  mix-blend-mode: overlay; /* Mezcla el color para dar un toque metálico */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+}
+
+/* Estilos para el contenedor del contenido */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgba(40, 44, 52, 0.85); /* Fondo semi-transparente para el contenido */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más fuerte para el header */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  margin: 0; /* Elimina el margen para que el fondo cubra todo */
+  max-width: 100%; /* Asegura que el contenido no sea demasiado ancho en pantallas pequeñas */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total del elemento */
 }
 
+/* Estilo del botón */
 button {
-  background-color: #61dafb;
-  border: none;
+  background-color: #1a1a1a; /* Color de fondo inicial */
+  border: 2px solid #efbb12; /* Borde dorado */
   padding: 10px 20px;
   font-size: 16px;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 20px;
+  color: #c3aa56; /* Color del texto dorado */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
 
+/* Efecto hover del botón */
+button:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transform: rotate(45deg);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* Ajustes al hover del botón */
+button:hover:before {
+  top: -30%;
+  left: -30%;
+}
+
+/* Estilo del botón deshabilitado */
 button:disabled {
-  background-color: #bbb;
+  background-color: #444;
+  border: 2px solid #666;
+  color: #888;
   cursor: not-allowed;
 }
 
-button:hover:enabled {
-  background-color: #21a1f1;
+/* Estilo del encabezado de resultados */
+h2 {
+  margin: 20px 0;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 20px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
 }
 
-li {
-  background: #282c34;
-  color: white;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+@media (max-width: 480px) {
+  .App-header {
+    font-size: calc(6px + 2vmin);
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
 }
