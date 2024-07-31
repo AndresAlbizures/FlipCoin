@@ -30,7 +30,7 @@ const Coin = styled.div`
   background-image: url(${props => props.$isFlipping ? `${process.env.PUBLIC_URL}/coin.png` : (props.$result === 'Cara' ? `${process.env.PUBLIC_URL}/cara.png` : `${process.env.PUBLIC_URL}/cruz.png`)});
   background-size: cover;
   background-position: center;
-  animation: ${props => props.$animate && css`${launch} 2s ease-in-out`};
+  animation: ${props => props.$animate && css`${launch} 1s ease-in-out`};
 `;
 
 function App() {
