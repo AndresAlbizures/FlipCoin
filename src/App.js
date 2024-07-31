@@ -27,10 +27,10 @@ const Coin = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #FFD700;
-  background-image: url(${props => props.isFlipping ? '/coin.png' : (props.result === 'Cara' ? '/cara.png' : '/cruz.png')});
+  background-image: url(${props => props.$isFlipping ? `${process.env.PUBLIC_URL}/coin.png` : (props.$result === 'Cara' ? `${process.env.PUBLIC_URL}/cara.png` : `${process.env.PUBLIC_URL}/cruz.png`)});
   background-size: cover;
   background-position: center;
-  animation: ${props => props.animate && css`${launch} 1s ease-in-out`};
+  animation: ${props => props.$animate && css`${launch} 1s ease-in-out`};
 `;
 
 function App() {
@@ -58,9 +58,9 @@ function App() {
       <header className="App-header">
         <h1>¡Juguemos a la ficha!</h1>
         <Coin 
-          animate={isFlipping} 
-          result={result} 
-          isFlipping={isFlipping}
+          $animate={isFlipping} 
+          $result={result} 
+          $isFlipping={isFlipping}
         />
         <button 
           onClick={flipCoin} 
@@ -69,7 +69,7 @@ function App() {
           Lanzar Moneda
         </button>
         {result && <h2>Resultado: {result}</h2>}
-        <audio ref={audioRef} src="/coin-flip.mp3" preload="auto" />
+        <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/coin-flip.mp3`} preload="auto" />
       </header>
     </div>
   );
