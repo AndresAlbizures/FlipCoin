@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FlipCoin/static/css/main.221a88d3.css",
+    "main.js": "/FlipCoin/static/js/main.ac066244.js",
+    "static/js/453.2a3b8f69.chunk.js": "/FlipCoin/static/js/453.2a3b8f69.chunk.js",
+    "index.html": "/FlipCoin/index.html",
+    "main.221a88d3.css.map": "/FlipCoin/static/css/main.221a88d3.css.map",
+    "main.ac066244.js.map": "/FlipCoin/static/js/main.ac066244.js.map",
+    "453.2a3b8f69.chunk.js.map": "/FlipCoin/static/js/453.2a3b8f69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.221a88d3.css",
+    "static/js/main.ac066244.js"
+  ]
+}
